@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            color: #ffffff;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="days-since"></div>
+    <script>
+        // Funktion, um URL-Parameter zu lesen
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Datum aus URL-Parameter "date" auslesen
+        const dateParam = getQueryParam('date'); // Beispiel: ?date=2023-01-01
+        const displayElement = document.getElementById("days-since");
+
+        if (dateParam) {
+            const startDate = new Date(dateParam);
+            if (!isNaN(startDate)) {
+                const today = new Date();
+                const timeDifference = today - startDate;
+                const daysSince = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                displayElement.textContent = `${daysSince} Tage seit ${startDate.toLocaleDateString('de-CH')}`;
+            } else {
+                displayElement.textContent = "Ungültiges Datum. Bitte nutze das Format YYYY-MM-DD.";
+            }
+        } else {
+            displayElement.textContent = "Kein Datum gefunden. Nutze die URL: ?date=YYYY-MM-DD.";
+        }
+    </script>
+</body>
+</html>
