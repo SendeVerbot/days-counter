@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 2em;
+            font-size: 4em;
             color: #ffffff;
             background-color: transparent; /* Hintergrund auf transparent setzen */
             display: flex;
@@ -38,7 +38,7 @@
                 const today = new Date();
                 const timeDifference = today - startDate;
                 const daysSince = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                displayElement.textContent = `Unfallfrei seit ${daysSince} Tagen`;
+                displayElement.textContent = `${daysSince} Tage Unfallfrei`;
             } else {
                 displayElement.textContent = "Ungültiges Datum. Bitte nutze das Format YYYY-MM-DD.";
             }
