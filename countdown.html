@@ -38,7 +38,7 @@
                 const today = new Date();
                 const timeDifference = today - startDate;
                 const daysSince = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                displayElement.textContent = `${daysSince} Tage Unfallfrei`;
+                displayElement.textContent = `${daysSince} Tagen`;
             } else {
                 displayElement.textContent = "Ungültiges Datum. Bitte nutze das Format YYYY-MM-DD.";
             }
